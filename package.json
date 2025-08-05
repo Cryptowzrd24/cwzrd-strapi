@@ -1,5 +1,5 @@
 {
-  "name": "cwzrd-strapi",
+  "name": "my-strapi-project",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -9,7 +9,6 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
@@ -20,8 +19,7 @@
     "@strapi/plugin-users-permissions": "5.20.0",
     "@strapi/strapi": "5.20.0",
     "better-sqlite3": "11.3.0",
-    "fs-extra": "^10.0.0",
-    "mime-types": "^2.1.27",
+    "pg": "^8.16.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -38,7 +36,7 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "5d0c493a-017b-4142-bb69-7294bac8eeb1",
-    "installId": "d37e438325c56ead14de33f1afcd3907957635bceba03a1aa4301548d1f344b7"
+    "uuid": "7e71f014-f613-4122-a524-429104e37d87",
+    "installId": "5a3534f77bfa5e150f4335fedd0a7a58d3565863624b8e46e01cc814c956bea3"
   }
 }

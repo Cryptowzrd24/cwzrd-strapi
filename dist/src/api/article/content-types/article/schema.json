@@ -1,0 +1,67 @@
+{
+    "kind": "collectionType",
+    "collectionName": "articles",
+    "info": {
+        "singularName": "article",
+        "pluralName": "articles",
+        "displayName": "Article"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "coverImage": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "content": {
+            "type": "richtext"
+        },
+        "summary": {
+            "type": "richtext"
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::category.category",
+            "inversedBy": "articles"
+        },
+        "hash_tags": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::tag.tag",
+            "inversedBy": "articles"
+        },
+        "author": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::author.author",
+            "inversedBy": "articles"
+        },
+        "coin": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::coin.coin",
+            "inversedBy": "articles"
+        },
+        "is_featured": {
+            "type": "boolean"
+        },
+        "views": {
+            "type": "integer"
+        },
+        "readTimeMinutes": {
+            "type": "integer"
+        }
+    }
+}

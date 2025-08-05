@@ -1,0 +1,61 @@
+{
+    "kind": "collectionType",
+    "collectionName": "authors",
+    "info": {
+        "singularName": "author",
+        "pluralName": "authors",
+        "displayName": "Author"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "slug": {
+            "type": "uid"
+        },
+        "avatar": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        },
+        "bio": {
+            "type": "text"
+        },
+        "email": {
+            "type": "email"
+        },
+        "news_reports": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::news-report.news-report",
+            "mappedBy": "author"
+        },
+        "technicals": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::technical.technical",
+            "mappedBy": "author"
+        },
+        "coins": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::coin.coin",
+            "mappedBy": "author"
+        },
+        "articles": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::article.article",
+            "mappedBy": "author"
+        }
+    }
+}

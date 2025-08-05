@@ -1,0 +1,48 @@
+{
+    "kind": "collectionType",
+    "collectionName": "technicals",
+    "info": {
+        "singularName": "technical",
+        "pluralName": "technicals",
+        "displayName": "Technical"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "content": {
+            "type": "richtext"
+        },
+        "hash_tags": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::tag.tag",
+            "inversedBy": "technicals"
+        },
+        "categories": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::category.category",
+            "inversedBy": "technicals"
+        },
+        "author": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::author.author",
+            "inversedBy": "technicals"
+        },
+        "is_featured": {
+            "type": "boolean"
+        },
+        "coin": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::coin.coin",
+            "inversedBy": "technicals"
+        }
+    }
+}
