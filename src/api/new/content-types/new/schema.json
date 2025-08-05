@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news",
+  "info": {
+    "singularName": "new",
+    "pluralName": "news",
+    "displayName": "New"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "sub_title": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hashtag.hashtag"
+    }
+  }
+}
