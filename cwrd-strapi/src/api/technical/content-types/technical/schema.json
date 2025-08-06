@@ -64,6 +64,43 @@
       "relation": "oneToOne",
       "target": "api::coin.coin",
       "mappedBy": "technical"
+    },
+    "support_levels": {
+      "type": "json"
+    },
+    "resistance_levels": {
+      "type": "json"
+    },
+    "market_sentiment": {
+      "type": "enumeration",
+      "enum": [
+        "Bullish",
+        "Bearish",
+        "Neutral"
+      ]
+    },
+    "focus_area": {
+      "type": "enumeration",
+      "enum": [
+        "Lower Timeframe",
+        "Weekly Transition"
+      ]
+    },
+    "intraday_behavior": {
+      "type": "blocks"
+    },
+    "tradingview_link": {
+      "type": "string"
+    },
+    "doc_file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

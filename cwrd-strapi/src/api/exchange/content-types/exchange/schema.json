@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exchanges",
+  "info": {
+    "singularName": "exchange",
+    "pluralName": "exchanges",
+    "displayName": "Exchange"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "website": {
+      "type": "string"
+    },
+    "coin": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::coin.coin",
+      "inversedBy": "exchanges"
+    }
+  }
+}

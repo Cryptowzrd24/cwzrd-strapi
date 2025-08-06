@@ -396,6 +396,11 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    doc_file: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    external_links: Schema.Attribute.String;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -405,6 +410,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     readTimeMinutes: Schema.Attribute.Integer;
+    references: Schema.Attribute.String;
     summary: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -508,6 +514,7 @@ export interface ApiCoinCoin extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    exchanges: Schema.Attribute.Relation<'oneToMany', 'api::exchange.exchange'>;
     hash_tags: Schema.Attribute.Relation<
       'manyToMany',
       'api::hash-tag.hash-tag'
@@ -537,6 +544,38 @@ export interface ApiCoinCoin extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     volume_24h: Schema.Attribute.Decimal;
+    website: Schema.Attribute.String;
+  };
+}
+
+export interface ApiExchangeExchange extends Struct.CollectionTypeSchema {
+  collectionName: 'exchanges';
+  info: {
+    displayName: 'Exchange';
+    pluralName: 'exchanges';
+    singularName: 'exchange';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    coin: Schema.Attribute.Relation<'manyToOne', 'api::coin.coin'>;
+    country: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::exchange.exchange'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
     website: Schema.Attribute.String;
   };
 }
@@ -644,10 +683,15 @@ export interface ApiTechnicalTechnical extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    doc_file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    focus_area: Schema.Attribute.Enumeration<
+      ['Lower Timeframe', 'Weekly Transition']
+    >;
     hash_tags: Schema.Attribute.Relation<
       'manyToMany',
       'api::hash-tag.hash-tag'
     >;
+    intraday_behavior: Schema.Attribute.Blocks;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTrending: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -656,10 +700,16 @@ export interface ApiTechnicalTechnical extends Struct.CollectionTypeSchema {
       'api::technical.technical'
     > &
       Schema.Attribute.Private;
+    market_sentiment: Schema.Attribute.Enumeration<
+      ['Bullish', 'Bearish', 'Neutral']
+    >;
     publishedAt: Schema.Attribute.DateTime;
     readTimeMinutes: Schema.Attribute.Integer;
+    resistance_levels: Schema.Attribute.JSON;
     summary: Schema.Attribute.Text;
+    support_levels: Schema.Attribute.JSON;
     title: Schema.Attribute.String;
+    tradingview_link: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1179,6 +1229,7 @@ declare module '@strapi/strapi' {
       'api::auther.auther': ApiAutherAuther;
       'api::category.category': ApiCategoryCategory;
       'api::coin.coin': ApiCoinCoin;
+      'api::exchange.exchange': ApiExchangeExchange;
       'api::hash-tag.hash-tag': ApiHashTagHashTag;
       'api::new.new': ApiNewNew;
       'api::technical.technical': ApiTechnicalTechnical;

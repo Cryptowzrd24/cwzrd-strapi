@@ -51,6 +51,22 @@
     "isFeatured": {
       "type": "boolean",
       "default": false
+    },
+    "doc_file": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "external_links": {
+      "type": "string"
+    },
+    "references": {
+      "type": "string"
     }
   }
 }

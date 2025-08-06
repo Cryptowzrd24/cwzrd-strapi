@@ -96,6 +96,12 @@
       "relation": "oneToMany",
       "target": "api::new.new",
       "mappedBy": "coin"
+    },
+    "exchanges": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exchange.exchange",
+      "mappedBy": "coin"
     }
   }
 }
