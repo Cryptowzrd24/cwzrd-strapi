@@ -90,6 +90,12 @@
       "relation": "oneToOne",
       "target": "api::technical.technical",
       "inversedBy": "coin"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::new.new",
+      "mappedBy": "coin"
     }
   }
 }

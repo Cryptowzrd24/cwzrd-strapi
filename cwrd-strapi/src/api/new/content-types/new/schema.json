@@ -67,6 +67,15 @@
       "relation": "manyToMany",
       "target": "api::hash-tag.hash-tag",
       "mappedBy": "news"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "coin": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::coin.coin",
+      "inversedBy": "news"
     }
   }
 }

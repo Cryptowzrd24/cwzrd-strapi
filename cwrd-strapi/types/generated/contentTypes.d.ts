@@ -520,6 +520,7 @@ export interface ApiCoinCoin extends Struct.CollectionTypeSchema {
     market_cap: Schema.Attribute.Decimal;
     max_supply: Schema.Attribute.Decimal;
     name: Schema.Attribute.String;
+    news: Schema.Attribute.Relation<'oneToMany', 'api::new.new'>;
     percent_change_24h: Schema.Attribute.Decimal;
     percent_change_30d: Schema.Attribute.Decimal;
     percent_change_7d: Schema.Attribute.Decimal;
@@ -590,6 +591,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::category.category'
     >;
+    coin: Schema.Attribute.Relation<'manyToOne', 'api::coin.coin'>;
     content: Schema.Attribute.RichText;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -612,6 +614,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     readTimeMinutes: Schema.Attribute.Integer;
+    summary: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
