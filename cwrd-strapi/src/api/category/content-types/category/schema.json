@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new.new",
+      "inversedBy": "categories"
+    },
+    "technicals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technical.technical",
+      "mappedBy": "category"
+    },
+    "coins": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coin.coin",
+      "mappedBy": "categories"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "categories"
+    }
+  }
+}

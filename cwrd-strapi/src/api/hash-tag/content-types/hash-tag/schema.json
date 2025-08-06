@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hash_tags",
+  "info": {
+    "singularName": "hash-tag",
+    "pluralName": "hash-tags",
+    "displayName": "Hash-tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::new.new",
+      "inversedBy": "hash_tags"
+    },
+    "technicals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::technical.technical",
+      "mappedBy": "hash_tags"
+    },
+    "coins": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coin.coin",
+      "mappedBy": "hash_tags"
+    }
+  }
+}

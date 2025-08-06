@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "technicals",
+  "info": {
+    "singularName": "technical",
+    "pluralName": "technicals",
+    "displayName": "Technical"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "auther": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::auther.auther",
+      "inversedBy": "technicals"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "technicals"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "isTrending": {
+      "type": "boolean",
+      "default": false
+    },
+    "readTimeMinutes": {
+      "type": "integer"
+    },
+    "hash_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hash-tag.hash-tag",
+      "inversedBy": "technicals"
+    },
+    "coin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::coin.coin",
+      "mappedBy": "technical"
+    }
+  }
+}
