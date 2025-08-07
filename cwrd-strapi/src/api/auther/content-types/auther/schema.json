@@ -34,25 +34,25 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::new.new",
-      "mappedBy": "auther"
+      "mappedBy": "author"
     },
     "technicals": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::technical.technical",
-      "mappedBy": "auther"
+      "mappedBy": "author"
     },
     "coins": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::coin.coin",
-      "mappedBy": "auther"
+      "mappedBy": "author"
     },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
-      "mappedBy": "auther"
+      "mappedBy": "author"
     }
   }
 }

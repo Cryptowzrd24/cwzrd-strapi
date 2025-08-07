@@ -20,7 +20,7 @@
     "content": {
       "type": "richtext"
     },
-    "auther": {
+    "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::auther.auther",
@@ -59,11 +59,11 @@
       "target": "api::hash-tag.hash-tag",
       "inversedBy": "technicals"
     },
-    "coin": {
+    "coins": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToMany",
       "target": "api::coin.coin",
-      "mappedBy": "technical"
+      "mappedBy": "technicals"
     },
     "support_levels": {
       "type": "json"

@@ -384,7 +384,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    auther: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
@@ -504,7 +504,7 @@ export interface ApiCoinCoin extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    auther: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
@@ -535,8 +535,8 @@ export interface ApiCoinCoin extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     rank: Schema.Attribute.Integer;
     symbol: Schema.Attribute.String;
-    technical: Schema.Attribute.Relation<
-      'oneToOne',
+    technicals: Schema.Attribute.Relation<
+      'manyToMany',
       'api::technical.technical'
     >;
     total_supply: Schema.Attribute.Decimal;
@@ -625,7 +625,7 @@ export interface ApiNewNew extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    auther: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
@@ -673,9 +673,9 @@ export interface ApiTechnicalTechnical extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    auther: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::auther.auther'>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    coin: Schema.Attribute.Relation<'oneToOne', 'api::coin.coin'>;
+    coins: Schema.Attribute.Relation<'manyToMany', 'api::coin.coin'>;
     content: Schema.Attribute.RichText;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
