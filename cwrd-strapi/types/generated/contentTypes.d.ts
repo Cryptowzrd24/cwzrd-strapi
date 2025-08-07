@@ -423,7 +423,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiAutherAuther extends Struct.CollectionTypeSchema {
   collectionName: 'authers';
   info: {
-    displayName: 'Auther';
+    displayName: 'Author';
     pluralName: 'authers';
     singularName: 'auther';
   };
