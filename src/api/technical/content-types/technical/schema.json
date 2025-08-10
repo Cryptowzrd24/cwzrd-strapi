@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "technicals",
+  "info": {
+    "singularName": "technical",
+    "pluralName": "technicals",
+    "displayName": "Technical"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "symbolPair": {
+      "type": "string"
+    },
+    "assetType": {
+      "type": "enumeration",
+      "enum": [
+        "crypto",
+        "forex",
+        "stock"
+      ]
+    },
+    "analysisDate": {
+      "type": "datetime"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "technicals"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "technicals"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "priceChange1h": {
+      "type": "decimal"
+    },
+    "priceChange24h": {
+      "type": "decimal"
+    },
+    "priceChange7d": {
+      "type": "decimal"
+    },
+    "marketCap": {
+      "type": "decimal"
+    },
+    "marketCapChange": {
+      "type": "decimal"
+    },
+    "chartImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "chartEmbed": {
+      "type": "string"
+    },
+    "body": {
+      "type": "blocks"
+    }
+  }
+}
